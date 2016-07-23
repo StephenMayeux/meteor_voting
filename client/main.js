@@ -3,13 +3,11 @@ import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import { Polls } from '../imports/collections/polls';
+import App from './components/app';
 
 const routes = (
   <Router history={ browserHistory }>
     <Route path='/' component={App}>
-      <IndexRoute component={PollsList} />
-      <Route path='polls/new' component={PollsCreate} />
-      <Route path='polls/:pollId' component={PollsView} />
     </Route>
   </Router>
 );
