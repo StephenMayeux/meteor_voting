@@ -5,7 +5,7 @@ export default (props) => {
   return (
     <div>
       <Header />
-      <h1>Test!!!</h1>
+      {props.children}
     </div>
   );
 };

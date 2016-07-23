@@ -12,7 +12,7 @@ class Header extends Component {
         </div>
         <ul className="nav navbar-nav">
           <li><Accounts /></li>
-          <li><a href="#">Create Poll</a></li>
+          <li><Link to="/create">Create Poll</Link></li>
         </ul>
       </nav>
     );
