@@ -5,12 +5,14 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Polls } from '../imports/collections/polls';
 import CreatePolls from './components/polls/polls_create';
 import PollsList from './components/polls/polls_list';
+import PollsDetail from './components/polls/polls_detail';
 import App from './components/app';
 
 const routes = (
   <Router history={browserHistory}>
     <Route path='/' component={App}>
       <IndexRoute component={PollsList} />
+      <Route path='polls/:pollId' component={PollsDetail} />
       <Route path='create' component={CreatePolls} />
     </Route>
   </Router>

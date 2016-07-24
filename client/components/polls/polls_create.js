@@ -7,7 +7,8 @@ class CreatePolls extends Component {
     const question = this.refs.question.value.trim();
     const options = Object.keys(this.refs).reduce((acc, key) => {
       if (key !== 'question') {
-        acc.push(this.refs[key].value.trim())
+        const option = this.refs[key].value.trim();
+        acc.push({ option: 0 })
       }
       return acc;
     }, []);
