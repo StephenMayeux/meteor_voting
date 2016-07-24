@@ -5,13 +5,16 @@ class CreatePolls extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const question = this.refs.question.value.trim();
+
     const options = Object.keys(this.refs).reduce((acc, key) => {
       if (key !== 'question') {
-        const option = this.refs[key].value.trim();
-        acc.push({ option: 0 })
+        let option = {};
+        option[this.refs[key].value.trim()] = 0;
+        acc.push(option);
       }
       return acc;
     }, []);
+
     Meteor.call('polls.create', question, options, (err, pollId) => {
       browserHistory.push('/');
     });
