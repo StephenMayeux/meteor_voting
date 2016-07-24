@@ -4,12 +4,22 @@ import { Polls } from '../../../imports/collections/polls';
 import { Link } from 'react-router';
 
 class PollsList extends Component {
+  onPollRemove(poll) {
+    Meteor.call('polls.delete', poll);
+  }
+
   renderList() {
     return this.props.polls.map(poll => {
       const url = `/polls/${poll._id}`
       return (
         <li className="list-group-item" key={poll._id}>
           <Link to={url}>{poll.pollQuestion}</Link>
+          <span className="pull-right">
+            <button
+              className="btn btn-danger"
+              onClick={() => this.onPollRemove(poll)}>Delete
+            </button>
+          </span>
         </li>
       );
     });
